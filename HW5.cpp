@@ -33,7 +33,7 @@ private:
 		}
 		p = j;
 		while (p != k) {	//j~k
-			p = pre[i][p];
+			p = pre[k][p];
 			s2.push(p);
 		}
 		p = k;
