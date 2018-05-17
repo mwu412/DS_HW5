@@ -74,13 +74,15 @@ public:
 		for (int k = 0; k < n; k++) {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
-					if ((a[i][k] + a[k][j]) < a[i][j]) {
-						a[i][j] = a[i][k] + a[k][j];
-						pre[i][j] = k;
-					}
-					else if ((a[i][k] + a[k][j]) == a[i][j]) {
-						if (PreviousPath(i, j, k)) {
-							pre[i][j] = k;
+					if (i != j) {
+						if ((a[i][k] + a[k][j]) < a[i][j]) {
+							a[i][j] = a[i][k] + a[k][j];
+							pre[i][j] = pre[k][j];
+						}
+						else if ((a[i][k] + a[k][j]) == a[i][j]) {
+							if (PreviousPath(i, j, k)) {
+								pre[i][j] = pre[k][j];
+							}
 						}
 					}
 				}
